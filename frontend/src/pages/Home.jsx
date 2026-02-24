@@ -30,6 +30,7 @@ function Home() {
     e.preventDefault();
 
     if (!searchQuery.trim()) return;
+    if(loading) return
 
     setLoading(true);
 
@@ -38,9 +39,9 @@ function Home() {
       setMovies(results);
       setError(null);
     } catch (err) {
-      setError("Failed to search movies...");
+        setError("Failed to search movies...");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
 
     setSearchQuery("");
